@@ -1,0 +1,49 @@
+add $t0, $t1, $t2   # $t0 = $t1 + $t2 (8 = 9 + 10 -> $t0 = 19)
+sub $t3, $t4, $t5   # $t3 = $t4 - $t5 (11 = 12 - 13 -> $t3 = -1)
+and $t6, $t7, $s0   # $t6 = $t7 & $s0 (14 = 15 & 16 -> $t6 = 0)
+or  $s1, $s2, $s3   # $s1 = $s2 | $s3 (17 = 18 | 19 -> $s1 = 19)
+slt $s4, $s5, $s6   # $s4 = ($s5 < $s6) ? 1 : 0 (20 = (21 < 22) ? 1 -> $s4 = 1)
+sll $s7, $s8, 2     # $s7 = $s8 << 2 (23 = 24 << 2 -> $s7 = 96)
+srl $s9, $k0, 3     # $s9 = $k0 >> 3 (25 = 26 >> 3 -> $s9 = 3)
+
+
+addi $t0, $zero, 8   # $t0 = 8
+addi $t1, $zero, 20  # $t1 = 20
+sw $t1, 4($t0)       # Memory[12] = $t1
+lw $t2, 4($t0)       # $t2 = Memory[12]  
+
+
+addi $t0, $zero, 5   # $t0 = 5
+addi $t1, $zero, 5   # $t1 = 5
+beq  $t0, $t1, equal # $t0 == $t1 ise equal etiketine git
+addi $t2, $zero, 20  # Bu komut atlanmalý
+equal:
+addi $t3, $zero, 42  # $t3 = 42
+
+
+addi $t0, $zero, 8       # $t0 = 8 (Taban adres)
+addi $t1, $zero, 50      # $t1 = 50 (Belleðe yazýlacak ilk deðer)
+addi $t2, $zero, 100     # $t2 = 100 (Belleðe yazýlacak ikinci deðer)
+sw $t1, 0($t0)           # $t0 + 0 adresine $t1'i kaydet (8. adres)
+sw $t2, 4($t0)           # $t0 + 4 adresine $t2'yi kaydet (12. adres)
+lw $t3, 0($t0)           # $t3'e 8. adresteki deðeri yükle (50)
+lw $t4, 4($t0)           # $t4'e 12. adresteki deðeri yükle (100)
+
+
+addi $t0, $zero, 10
+addi $t1, $zero, 20
+j skip                   # "skip" etiketine dallan
+addi $t2, $zero, 30      # Atlanacak komut
+skip:
+addi $t3, $zero, 42      # "skip" etiketi: $t3 = 42
+jal next                 # "next" etiketine dallan ve $ra'ya dönüþ adresi kaydet
+addi $t4, $zero, 50      # Atlanacak komut
+next:
+addi $t5, $zero, 99      # "next" etiketi: $t5 = 99
+
+
+addi $t0, $zero, 8     # $t0 = 8 (Hedef adres)
+addi $ra, $zero, 12    # $ra = 12 (Geri dönüþ adresi)
+jr $t0                 # $t0 register'ýna sýçra
+addi $t1, $zero, 5     # Atlanmasý gereken komut
+add $t2, $zero, $ra    # $t2 = $ra (Geri dönüþ adresi kontrolü)
