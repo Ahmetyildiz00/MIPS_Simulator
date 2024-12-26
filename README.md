@@ -8,18 +8,18 @@ The MIPS Simulator is a tool for executing MIPS Assembly code. It allows users t
 ## How to Download and Use the Project
 
 ### **1. Download the Project**
-1. Navigate to the GitHub repository: [MIPS Simulator Repository](https://github.com/YourUsername/MIPS-Simulator).
+1. Navigate to the GitHub repository: [MIPS Simulator Repository](https://github.com/Ahmetyildiz00/MIPS_Simulator.git).
 2. Click the green **"Code"** button and select **"Download ZIP"** to download the project as a ZIP file.
 3. Extract the ZIP file to a folder on your computer.
 
 Alternatively, if you have Git installed:
 ```bash
-git clone https://github.com/YourUsername/MIPS-Simulator.git` 
+git clone https://https://github.com/Ahmetyildiz00/MIPS_Simulator.git` 
 
 ### **2. Open the Project**
 
 1.  Ensure you have **Visual Studio** installed with the `.NET Framework` development tools.
-2.  Open the project folder and double-click the `MIPS-Simulator.sln` file to open the solution in Visual Studio.
+2.  Open the project folder and double-click the `MIPS_Simulator.sln` file to open the solution in Visual Studio.
 
 ### **3. Run the Project**
 
